@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Dummy API V1",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8090/api/v1",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/contact": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contact"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Contact created."
+                    }
+                },
+                "operationId": "createContact"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Contact": {
+                "title": "Root Type for Contact",
+                "description": "",
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "firstName": "Michael",
+                    "lastName": "Wuersch"
+                }
+            }
+        }
+    }
+}
